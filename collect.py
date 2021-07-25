@@ -5,8 +5,13 @@ from os.path import isfile, join
 import os
 import datetime
 
+from dotenv import load_dotenv
+load_dotenv()
+mypath = os.getenv('MYFOLDER')
+
 imagePath = 'image'
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
 
 for book in onlyfiles:
     startTime_pdf2img = datetime.datetime.now()#Start time
@@ -39,5 +44,3 @@ for book in onlyfiles:
 
         endTime_pdf2img = datetime.datetime.now()#end time
         print('pdf2img time=',(endTime_pdf2img-startTime_pdf2img).seconds)
-
-1
